@@ -1,0 +1,57 @@
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="card">
+      <h4 class="card-header">Tutor Finder Dashboard</h4>
+      <div class="card-body">
+        <form [formGroup]="dashboardFormData" (ngSubmit)="onSubmit()">
+              <div class="form-group row">
+                  <div class="col-6">
+                      <label for="role">Grades <span class="required-asterisk">*</span></label>
+                      <select class="form-control"  formControlName="grade" (change)="selectGrade($event)">
+                          <option>Choose Grades</option>
+                          <option [ngValue]="grade" *ngFor="let grade of gradeList">{{grade.description}}</option>
+                      </select>
+                  </div>
+                  <div class="col-6">
+                      <label for="role">Subjects <span class="required-asterisk">*</span></label>
+                      <select class="form-control"  formControlName="subject"[disabled]=hideSubjects
+                          (change)="selectSubject($event, selectedGrade)">
+                          <option>Choose Subjects</option>
+                          <option [ngValue]="subject" *ngFor="let subject of subjectList">{{subject.name}}</option>
+                      </select>
+                  </div>
+              
+              </div>
+              <div class="form-group">
+                  <label for="city">City<span class="required-asterisk">*</span></label>
+                  <input type="text" #enteredCity formControlName="city" class="form-control" />
+              </div>
+              <button [disabled]="loading" class="btn btn-primary" (click)="onSubmit()">
+                  Search
+              </button>
+              </form>
+      </div>
+  </div>
+</div>
+<div class="container" *ngIf="!hideResults">
+  <h1>SEARCH RESULTS</h1>
+  <table class="table table-striped">
+    <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Grade</th>
+          <th>Subject</th>
+          <th>Contact Number</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let searchResult of searchResults">
+        <td><a [routerLink]="['/schedule']" [queryParams]="{id: searchResult.user_id , grade: searchResult.grade , subject: searchResult.subject_name}" fragment="education">{{ searchResult.first_name }}</a></td>
+        <td>{{ searchResult.last_name }}</td>
+        <td>{{ searchResult.grade }}</td>
+        <td>{{ searchResult.subject_name }}</td>
+        <td>{{ searchResult.phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
