@@ -1,0 +1,20 @@
+<div class="container" *ngIf="!loading">
+    <h1>SEARCH RESULTS</h1>
+    <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>start Date</th>
+            <th>End Date</th>
+            <th>Fee</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let searchResult of searchResults">
+          <td>{{ searchResult.start_date }}</td>
+          <td>{{ searchResult.end_date }}</td>
+          <td>{{ searchResult.fee }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
