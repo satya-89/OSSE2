@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p
+{
+  margin:0;
+  padding:0;
+  font-size:18px;
+}
+p1
+{
+  margin:0;
+  padding:0;
+  font-size:13px;
+}
+p2
+{
+  margin:0;
+  padding:0;
+  font-size:15px;
+}
+table, th, td {
+  border:1px solid black;
+}
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+<title>OSSE Assignment 4</title>
+</style>
+</head>
+<body>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<script>
+
+var mybutton = document.getElementById("myBtn");
+
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<h2 style="margin-bottom:0; text-align:center">Submitted By</h2>
+<br>  
+<h3 style="margin : 0; padding-top:0; text-align:center">Akhtar Mariam Parveen Asif Ishrat</h3>
+<h3 style="margin : 0; padding-top:0; text-align:center">ID:- 2020MT93651</h3>
+<br>  
+<h3 style="margin : 0; padding-top:0; text-align:center">Avik Poddar</h3>
+<h3 style="margin : 0; padding-top:0; text-align:center">ID:- 2020MT93504</h3>
+<br>  
+<h3 style="margin : 0; padding-top:0; text-align:center">Dharma Muniasamy. S</h3>
+<h3 style="margin : 0; padding-top:0; text-align:center">ID:- 2021MT93073</h3>
+<br>  
+<h3 style="margin : 0; padding-top:0; text-align:center">Satyanarayan Nanda</h3>
+<h3 style="margin : 0; padding-top:0; text-align:center">ID:- 2020MT93631</h3>
+<br>
+
+
+<br>
+  <h1><b><u>TutorFinderApp</u></b></h1>
+<br>
+<p>This project was generated with Angular CLI version 12.2.10.</p>
+
+<h2 style="color:black;">Development server</h2>
+<p>Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.</p>
+
+<br>
+<br>
+<h2 style="color:black;">Code scaffolding</h2>
+<p>Run ng generate component component-name to generate a new component. You can also use ng generate directive|pipe|service|class|guard|interface|enum|module.</p>
+
+<br>
+<br>
+<h2 style="color:black;">Build</h2>
+<p>Run ng build to build the project. The build artifacts will be stored in the dist/ directory.</p>
+
+<br>
+<br>
+<h2 style="color:black;">Running unit tests</h2>
+<p>Run ng test to execute the unit tests via Karma.</p>
+
+<br>
+<br>
+<h2 style="color:black;">Running end-to-end tests</h2>
+<p>Run ng e2e to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.</p>
+
+<h1 style="margin-bottom:0; text-align:center"><u>Further help</u></h1>
+<h1 style="margin-bottom:0; text-align:center">To get more help on the Angular CLI use ng help or go check out the Angular CLI Overview and Command Reference page.</h1>
+
+</body>
+</html>
