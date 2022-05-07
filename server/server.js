@@ -35,9 +35,9 @@ app.post('/api/authenticate', (req, res) => {
     mysql.createConnection({
       host: 'remotemysql.com',
       port: 3306,
-      user: 'svQtxIxilZ',
-      database: 'svQtxIxilZ',
-      password: 'Z5uzX9DkGm',
+      user: 'TKSmeb3SF5',
+      database: 'TKSmeb3SF5',
+      password: 'NIAq1JFhQq',
     })
       .then(conn => {
         let result = conn.query(`select * from user where phone = ${user.phone} and password = '${user.password}'`);
