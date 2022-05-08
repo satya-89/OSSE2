@@ -1,0 +1,260 @@
+<div *ngIf="studentEnquiryDetails">
+  <div class="row">
+    <div class="col-md-12 student-enquires">
+      <card cardTitle="Enquiry Details" isCollapse="false">
+
+        <section class="section-contact section-wrapper gray-bg">
+          <div class="row m-0">
+            <div class="col-sm-4">
+              <address>
+                <strong>Enquiry No</strong><br>
+                {{studentEnquiryDetails.sequenceId}}
+              </address>
+            </div>
+            <div class="col-sm-4">
+              <address>
+                <strong>Enquiry Date</strong><br>
+                {{studentEnquiryDetails.createdOn | date: 'dd-MMM-yy h:mm:ss a' :'-0600' }}
+              </address>
+            </div>
+            <div class="col-sm-4">
+              <address>
+                <strong>Status</strong><br>
+                {{studentEnquiryDetails.status}}
+              </address>
+            </div>
+          </div>
+          <div class="row m-0">
+            <div class="col-sm-4">
+              <address>
+                <strong>Prefer Timing</strong><br>
+                {{studentEnquiryDetails.student.preferTiming}}
+              </address>
+            </div>
+            <div class="col-sm-4">
+              <address>
+                <strong>Prefer Day</strong><br>
+                {{studentEnquiryDetails.student.preferDay}}
+              </address>
+            </div>
+            <div class="col-sm-4">
+              <address>
+                <strong>Prefer Fee</strong><br>
+                {{studentEnquiryDetails.student.preferFee}}
+              </address>
+            </div>
+          </div>
+          <div class="row m-0">
+            <div class="col-sm-4">
+              <address>
+                <strong>Particular Class</strong><br>
+                {{studentEnquiryDetails.student.particularClass}}
+              </address>
+            </div>
+            <div class="col-sm-4">
+              <address>
+                <strong>Subjects</strong><br>
+                {{studentEnquiryDetails.student.subjects}}
+              </address>
+            </div>
+            <div class="col-sm-4">
+              <address>
+                <strong>Turor Type</strong><br>
+                {{studentEnquiryDetails.student.turorType}}
+              </address>
+            </div>
+          </div>
+
+          <div class="row m-0">
+            <div class="col-sm-4">
+              <address>
+                <strong>Reason For Query</strong><br>
+                {{studentEnquiryDetails.student.reasonForQuery}}
+              </address>
+            </div>
+          </div>
+
+          <div class="row m-0">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary mr-1 ml-1">Remind</button>
+            <button type="submit" class="btn btn-primary">Reject</button>
+          </div>
+
+        </section>
+
+      </card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 student-enquires">
+      <card cardTitle="Contact" isCollapse="true">
+        <section class="section-contact section-wrapper gray-bg">
+
+          <div class="row m-0">
+            <div class="col-sm-6">
+              <address>
+                <i class="fa fa-user-o social"></i>{{studentEnquiryDetails.student.name}}
+              </address>
+              <address>
+                <i class="fa fa-2x fa-phone social"></i>{{studentEnquiryDetails.student.mobile}}                
+              </address>
+              <address>
+                <i class="fa fa-2x fa-whatsapp social"></i>{{studentEnquiryDetails.student.whatsappNumber}}                
+              </address>
+              <address>
+                <i class="fa fa-2x fa-envelope-square social"></i>
+                <a href="mailto:{{studentEnquiryDetails.student.email}}">{{studentEnquiryDetails.student.email}}</a>                
+              </address>
+            </div>
+
+            <div class="col-sm-6">
+              <address>
+                <strong>Address</strong>
+                <br>
+                {{studentEnquiryDetails.student.addrLine1}},
+                <br>
+                {{studentEnquiryDetails.student.location}},
+                <br>
+                City: {{studentEnquiryDetails.student.city}},
+                <br>
+                State: {{studentEnquiryDetails.student.states}},
+                <br>
+                Zipcode: {{studentEnquiryDetails.student.zipCode}}
+              </address>
+            </div>
+          </div>
+        </section>
+      </card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 student-enquires">
+      <card cardTitle="Learning Need" isCollapse="false">
+        <div class="row m-0">
+          <div class="col-sm-12">
+            <p>
+              <i class="fa fa-graduation-cap social" aria-hidden="true"></i>
+              {{studentEnquiryDetails.className}},
+              {{studentEnquiryDetails.board}}
+            </p>
+          </div>          
+        </div>
+      </card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 student-enquires">
+      <card cardTitle="Preference" isCollapse="true">
+        <section class="section-contact section-wrapper gray-bg">
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <td>I am looking for</td>
+                  <td>Tuition Centre (At Tutor's place)</td>
+                </tr>
+                <tr>
+                  <td>Prefer Tutor</td>
+                  <td>{{studentEnquiryDetails.student.turorType}}</td>
+                </tr>
+                <tr>
+                  <td>Prefer Timing</td>
+                  <td>{{studentEnquiryDetails.student.preferTiming}}</td>
+                </tr>
+                <tr>
+                  <td>Prefer Day</td>
+                  <td>{{studentEnquiryDetails.student.preferDay}}</td>
+                </tr>
+                <tr>
+                  <td>Prefer Gender</td>
+                  <td>{{studentEnquiryDetails.student.preferGender}}</td>
+                </tr>               
+                <tr>
+                  <td>I want to</td>
+                  <td>{{studentEnquiryDetails.student.reasonForQuery}}</td>
+                </tr>
+                <tr>
+                  <td>Prefer Fee <small>(*Negotiable)</small></td>
+                  <td>{{studentEnquiryDetails.student.preferFee}}</td>
+                </tr>
+                <tr>
+                  <td>Student Performance</td>
+                  <td>{{studentEnquiryDetails.student.performance}}</td>
+                </tr>
+                <tr>
+                  <td>Any thing else</td>
+                  <td>{{studentEnquiryDetails.student.anythingElse}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </card>
+    </div>
+  </div>
+  
+  <div class="row" *ngIf="studentEnquiryDetails && studentEnquiryDetails.applications.length>0">
+    <div class="col-md-12 student-enquires">
+      <card cardTitle="All ENQUIRES" isCollapse="true">
+        <section class="section-contact section-wrapper gray-bg">
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Status</th>
+                  <th>Updated On</th>
+                  <th>Tutor Name</th>
+                  <th>Contact Enabled</th>
+                  <th>Job</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let application of studentEnquiryDetails.applications;">
+                  <td>{{application.id}}</td>
+                  <td>{{application.status}}</td>
+                  <td>{{application.updatedOn}}</td>
+                  <td>{{application?.tutor.name}}</td>
+                  <td>{{application.contactEnabled}}</td>
+                  <td>{{application.job}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 student-enquires">
+      <card cardTitle="Student Statistics Summary" isCollapse="true">
+        <div class="row m-0">
+          <div class="col-sm-6">
+            <p class="display-4 tx-medium tx-inverse mg-b-5 tx-lato">62%</p>
+            <div class="progress mg-b-10">
+              <div class="progress-bar" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"
+                style="width: 42%"><span class="progress-percent"> 62%</span>
+              </div>
+            </div><!-- progress -->
+            <p class="tx-12">Total Enquires made in this year.</p>
+            <p class="tx-11 lh-3 mg-b-0">You can also use other progress variant found in.</p>
+          </div><!-- col-6 -->
+          <div class="col-sm-6 mg-t-20 mg-sm-t-0 d-flex align-items-center justify-content-center">
+            <span class="peity-donut"
+              data-peity="{ &quot;fill&quot;: [&quot;#0866C6&quot;, &quot;#E9ECEF&quot;],  &quot;innerRadius&quot;: 60, &quot;radius&quot;: 90 }"
+              style="display: none;">10/100</span><svg class="peity" height="180" width="180">
+              <path
+                d="M 90 0 A 90 90 0 0 1 175.59508646656383 117.81152949374527 L 147.06339097770922 108.54101966249684 A 60 60 0 0 0 90 30"
+                fill="#0866C6"></path>
+              <path
+                d="M 175.59508646656383 117.81152949374527 A 90 90 0 1 1 89.99999999999999 0 L 89.99999999999999 30 A 60 60 0 1 0 147.06339097770922 108.54101966249684"
+                fill="#E9ECEF"></path>
+            </svg>
+          </div><!-- col-6 -->
+        </div>
+      </card>
+    </div>
+  </div>
+</div>

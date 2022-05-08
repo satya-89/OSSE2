@@ -1,0 +1,38 @@
+<div class="tutorlist-wrap">
+  <div class="form-row mb-3">
+    <div class="col">
+        <input type="text" class="form-control new-task-input" [(ngModel)]="searchName" placeholder="Search by Name">
+    </div>
+    <div class="col">
+        <input type="text" class="form-control new-task-input" [(ngModel)]="searchTutor" placeholder="Search by Number">
+    </div>
+  </div>
+
+  <div class="no-padding" *ngIf="tutorslist">
+
+    <div class="tutors-card col-12 no-padding">
+
+      <div class="tutors-body no-padding">
+        <div class="item d-flex align-items-center" *ngFor="let tutor of tutorslist | 
+        searchText: {mobile: searchTutor } | 
+        searchText: {whatsappNumber: searchTutor}; let i = index" (click)="ViewTutor(tutor)">
+          <div *ngIf="tutorslist === -1" class="text-center">"No matches"</div>
+          <div class="image">
+            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="..." class="img-fluid rounded-circle">
+          </div>
+          <div class="text">
+            <a>
+              <h3 class="tutor-name">
+                {{tutor.name}}&nbsp; <span class="sub-title mr-1">Credits:</span>{{tutor.credit/100}}/5
+              </h3>
+            </a>
+            <span class="sub-title mr-1">Mob:</span><small class="ml-1">{{tutor.mobile}}</small>
+            <span class="sub-title ml-1">Watsapp:</span><small class="ml-1">{{tutor.whatsappNumber}}</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

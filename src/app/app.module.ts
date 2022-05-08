@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MarkAsteriskDirective } from './directives/mark-asterisk.directive';
+import { AboutusModule } from './aboutus/aboutus.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MarkAsteriskDirective } from './directives/mark-asterisk.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AboutusModule
     ReactiveFormsModule,
     HttpClientModule
   ],

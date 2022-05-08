@@ -1,0 +1,65 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">View Tutor</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row" *ngIf="viewTutor">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <figure>
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGiVU5AazUo9Op4o_-hd-hCsPuTkO7VZN361mYnqhsXYALIi3-"
+                alt="" class="img-circle img-responsive">
+              <figcaption class="ratings">
+                <p>Ratings
+                  <a href="#">
+                    <span class="fa fa-star"></span>
+                  </a>
+                  <a href="#">
+                    <span class="fa fa-star"></span>
+                  </a>
+                  <a href="#">
+                    <span class="fa fa-star"></span>
+                  </a>
+                  <a href="#">
+                    <span class="fa fa-star"></span>
+                  </a>
+                  <a href="#">
+                    <span class="fa fa-star-o"></span>
+                  </a>
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="col-sm-6 col-md-8">
+            <p><strong>Name: </strong> {{viewTutor.name}} </p>
+            <p><strong>Email: </strong> {{viewTutor.email}} </p>
+            <p><strong>Mobile: </strong> {{viewTutor.mobile}} </p>
+            <p><strong>Experience: </strong> {{viewTutor.experience}} </p>
+            <p><strong>Qualification: </strong> {{viewTutor.qualification}} </p>
+            <p><strong>City: </strong> {{viewTutor.city}} </p>
+            <p><strong>Gender: </strong> {{viewTutor.gender}} </p>
+            <p><strong>JobType: </strong> {{viewTutor.jobType}} </p>
+            <p><strong>DOB: </strong> {{viewTutor.dob}} </p>
+            <p><strong>WhatsApp Number: </strong> {{viewTutor.whatsappNumber}} </p>
+            
+            <p><strong>Hobbies: </strong> Read, out with friends, listen to music, draw and learn new things. </p>
+            <p><strong>Skills: </strong>
+              <span class="tags">Maths</span>
+              <span class="tags">Science</span>
+              <span class="tags">English</span>
+              <span class="tags">Social</span>
+              <span class="tags">Painting</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Close</button>
+    <button type="button" class="btn btn-primary" (click)="bsModalRef.hide()">Ok</button>
+  </div>

@@ -1,0 +1,22 @@
+<div class="pl-4">
+
+  <ul class="tree" *ngIf="primaryCategories">
+    <li *ngFor="let category of primaryCategories;let i = index;">
+      <a (click)="isCollapse[i] = !isCollapse[i];hideme[i] = !hideme[i];">
+        <span class="fa" [ngClass]="isCollapse[i] ? 'fa-minus' : 'fa-plus'"></span>
+        <span class="ml-1" (click)="isCollapse[i] = !isCollapse[i];hideme[i] = !hideme[i];">
+          {{ category.name.split('(')[0] }}
+        </span>
+      </a>
+      <div class="subtitle" *ngIf="category.name.split('(')[1]">
+        <span>({{ category.name.split('(')[1] }}</span>
+      </div>
+      <ul class="ml-4" [hidden]="!hideme[i]">
+        <li *ngFor="let subject of category.subjects;let j = index;">
+          <span class="mr-2">{{subject.name}}</span>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+</div>

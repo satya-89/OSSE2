@@ -1,0 +1,143 @@
+<div class="tutorlist-wrap">
+  <div class="form-row mb-3">
+    <div class="col search-content">
+      <input type="text" class="form-control new-task-input" [(ngModel)]="searchEnquiry"
+        placeholder="Search by Enquiry No.">
+      <i class="fa fa-times" (click)="clearText()"></i>
+    </div>
+    <div class="col search-content">
+      <input type="number" class="form-control new-task-input" [(ngModel)]="searchMobile"
+        placeholder="Search by Mobile...">
+      <i class="fa fa-times" (click)="clearText()"></i>
+    </div>
+    <div class="col search-content">
+      <select class="form-control new-task-input" name="sel" id="sel" [(ngModel)]="searchTextLocation">
+        <option [ngValue]="undefined" disabled selected> Search by city... </option>
+        <option *ngFor="let city of cities" [ngValue]="city.name">{{city.name}}</option>
+      </select>
+      <i class="fa fa-times" (click)="clearText()"></i>
+    </div>
+    <div class="col search-content">
+      <select class="form-control new-task-input" name="sel" id="sel" [(ngModel)]="searchTextStatus">
+        <option [ngValue]="undefined" disabled selected> Search by Status... </option>
+        <option *ngFor="let state of status" [ngValue]="state">{{state}}</option>
+      </select>
+      <i class="fa fa-times" (click)="clearText()"></i>
+    </div>
+
+  </div>
+
+  <div class="no-padding" *ngIf="studentslist.length>0">
+
+    <div class="col-12 no-padding">
+      <div class="table-content">
+        <table class="table table-bordered table-hover table-responsive">
+          <thead>
+            <tr>
+              <th>S. No</th>
+              <th (click)="sort('sequenceId')">
+                Enq ID
+                <i class="fa" [ngClass]="{'fa-sort': column != 'sequenceId', 
+                        'fa-sort-asc': (column == 'sequenceId' && !isDesc), 
+                        'fa-sort-desc': (column == 'sequenceId' && isDesc) }" aria-hidden="true"> </i>
+              </th>
+              <th (click)="sort('createdOn')">
+                Enq Date
+                <i class="fa" [ngClass]="{'fa-sort': column != 'createdOn', 
+                        'fa-sort-asc': (column == 'createdOn' && !isDesc), 
+                        'fa-sort-desc': (column == 'createdOn' && isDesc) }" aria-hidden="true"> </i>
+              </th>
+              <th>Name</th>
+              <th>Due Date</th>
+              <th>Response</th>
+              <th (click)="sort('status')">
+                Status
+                <i class="fa" [ngClass]="{'fa-sort': column != 'status', 
+                        'fa-sort-asc': (column == 'status' && !isDesc), 
+                        'fa-sort-desc': (column == 'status' && isDesc) }" aria-hidden="true"> </i>
+              </th>
+              <th>Updated By</th>
+              <th>Last Updated By & Time</th>
+              <th>Go To</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of studentslist |
+                  orderBy: {property: column, direction: direction} |
+                  searchText: {sequenceId: searchEnquiry } |
+                  searchText: {mobile: searchMobile } | 
+                  searchText: {city: searchTextLocation } |                 
+                  searchText: {whatsappNumber: searchTextStatus} |
+                  paginate: { id: 'server', itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalItems };let idx = index">
+                  <!-- paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber, totalItems: totalItems} -->
+              <td>{{item.id}}</td>
+              <td>{{item?.sequenceId}}</td>
+              <td>{{item.createdOn | date: 'dd/MM/yyyy'}}</td>
+              <td>{{item?.student?.name}}</td>
+              <td>{{item.status}}</td>
+              <td>{{item.status}}</td>
+              <td>{{item.status}}</td>
+              <td>{{item.status}}</td>
+              <td>{{item.status}}</td>
+              <td><span class="label label-info" (click)="ViewEnquiry(item)">info</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <form class="pagination-wrapper">
+          <div class="has-text-centered">
+              <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
+              <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+          </div>
+
+        <!-- <div class="form-group pages">
+          <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)" maxSize="9"
+            directionLinks="true" autoHide="true" previousLabel="Prev" nextLabel="Next"
+            screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page">
+          </pagination-controls>
+        </div> -->
+        <div class="form-group options pages">
+          <div class="input-group input-group-sm">
+            <select class="form-control" name="pageChangedName" [(ngModel)]="itemsPerPage" (ngModelChange)="getPage(currentPage);">
+              <option>1</option>
+              <option>5</option>
+              <option>7</option>
+              <option>9</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+              <option>100</option>
+              <option>200</option>
+            </select>
+            <span class="input-group-addon addon-right">Per Page</span>
+          </div>
+        </div>
+      </form>
+
+
+      <!-- <div class="tutors-body no-padding">
+        <div class="item d-flex align-items-center" *ngFor="let tutor of tutorslist | 
+          searchText: {name: searchName } |
+          searchText: {mobile: searchMobile } | 
+          searchText: {whatsappNumber: searchMobile}; let i = index" (click)="ViewTutor(tutor)">
+          <div *ngIf="tutorslist === -1" class="text-center">"No matches"</div>
+          <div class="image">
+            <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="..." class="img-fluid rounded-circle">
+          </div>
+          <div class="text">
+            <a>
+              <h3 class="tutor-name">
+                {{tutor.name}}&nbsp; <span class="sub-title mr-1">Credits:</span>{{tutor.credit/100}}/5
+              </h3>
+            </a>
+            <span class="sub-title mr-1">Mob:</span><small class="ml-1">{{tutor.mobile}}</small>
+            <span class="sub-title ml-1">Watsapp:</span><small class="ml-1">{{tutor.whatsappNumber}}</small>
+          </div>
+        </div>
+
+      </div> -->
+    </div>
+
+  </div>
+</div>

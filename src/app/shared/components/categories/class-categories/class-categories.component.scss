@@ -1,0 +1,127 @@
+@import "../../../../shared/theme/conf";
+.pagination-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    .input-group {
+        width: 150px;
+        .input-group-addon {
+            @extend .bg-primary;
+            color: $white;
+            border: none;
+            padding: 0rem 0.5rem;
+            line-height: 1.8rem;
+        }
+    }
+    .form-group {
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.my-pagination /deep/ .ngx-pagination {
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: $sm-text;
+    padding: 0;
+    a,
+    .current {
+        min-width: 30px;
+        text-decoration: none;
+        height: 35px;
+        text-align: center;
+        line-height: 33px;
+        margin: 0;
+        color: $fonts-color;
+        &:last-child {
+            border: none;
+        }
+    }
+    a:hover,
+    .current {
+        min-width: 30px;
+        @extend .bg-primary;
+        color: $white;
+    }
+    .disabled {
+        color: rgba($fonts-color, .4);
+        cursor: not-allowed;
+    }
+}
+
+.form-group {
+    &.has-search {
+      margin-bottom: 0;
+      position: relative;
+    }
+  
+    .form-control {
+      padding-left: 2.375rem;
+      line-height: 1.5;
+      height: calc(2.15rem + 2px);
+      color: $primary;
+      background-color: #cfcfcf;
+      border-radius: 4px;
+    }
+  
+    .form-control-feedback {
+      position: absolute;
+      z-index: 2;
+      display: block;
+      width: 2.375rem;
+      height: 2.375rem;
+      line-height: 2.375rem;
+      text-align: center;
+      pointer-events: none;
+      color: $primary;
+    }
+  }
+  
+  .filter-search {
+    .list-group-item {
+      border: 0;
+    }
+  }
+
+  ul.tree, ul.tree ul {
+    list-style: none;
+     margin: 0;
+     padding: 0;
+   } 
+   ul.tree ul {
+     margin-left: 10px;
+   }
+   ul.tree li {
+     margin: 0;
+     padding: 0 7px;
+     line-height: 30px;
+     color: #369;
+     font-weight: bold;
+     border-left:1px solid rgb(100,100,100);
+
+     .subtitle {
+        font-size: 0.7rem;
+        line-height: 1;
+        margin-left: 30px;
+      }
+   }
+   ul.tree li:last-child {
+       border-left:none;
+   }
+   ul.tree li:before {
+      position:relative;
+      top:-0.3em;
+      height:1em;
+      width:12px;
+      color:white;
+      border-bottom:1px solid rgb(100,100,100);
+      content:"";
+      display:inline-block;
+      left:-7px;
+   }
+   ul.tree li:last-child:before {
+      border-left:1px solid rgb(100,100,100);   
+   }

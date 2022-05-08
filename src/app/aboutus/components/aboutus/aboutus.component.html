@@ -1,0 +1,15 @@
+<card cardTitle="About us">
+  <div class="row m-0">
+    <div class="d-flex justify-content-between align-items-center">
+      <button class="btn btn-primary mr-1" (click)="editAboutus()">Edit</button>
+      <button class="btn btn-primary mr-1" (click)="clearAboutus()">Clear</button>
+      <span class="ml-2" *ngIf="lastUpdated">
+        lastUpdated on : {{lastUpdated | date: 'dd/MM/yyyy'}}
+      </span>
+    </div>
+    <div class="col-md-12">
+      <hr>
+      <div id="text-output"></div>
+    </div>
+  </div>
+</card>

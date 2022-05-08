@@ -1,0 +1,51 @@
+@import "./theme/conf";
+@import "./theme/base";
+@import "./theme/cover/_card";
+@import "./theme/cover/_buttons";
+@import "./theme/cover/_form";
+@import "./theme/cover/_tables";
+@import "./theme/cover/_modal";
+@import "./theme/cover/_pell-editor";
+@import "./theme/cover/_ng2-select";
+@import "./theme/overrides";
+
+body {
+  font-size: 0.9rem;
+}
+h2,
+.h2 {
+  font-size: 1.5rem;
+}
+.lead {
+  font-size: 1rem;
+}
+
+.btn {
+  font-size: 0.9rem;
+}
+
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + label span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  vertical-align: middle;
+  border: 2px solid #66ccff;
+  border-radius: 50%;
+  padding: 2px;
+  margin: 0 5px;
+}
+input[type="radio"]:checked + label span {
+  width: 20px;
+  height: 20px;
+  background: #66ccff;
+  background-clip: content-box;
+}
+
+
+.font-20 {
+  font-size: 20px;
+}
